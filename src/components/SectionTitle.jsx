@@ -1,9 +1,8 @@
-import React from 'react'
-
-function SectionTitle() {
+const SectionTitle = ({ text }) => {
   return (
-    <div>SectionTitle</div>
+    <div className='border-b border-base-300 pb-5'>
+      <h2 className='text-3xl font-medium tracking-wider capitalize'>{text}</h2>
+    </div>
   )
 }
-
 export default SectionTitle
