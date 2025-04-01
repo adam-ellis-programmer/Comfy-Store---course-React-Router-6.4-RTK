@@ -2,36 +2,22 @@ import { BsCart3, BsMoonFill, BsSunFill } from 'react-icons/bs'
 import { FaBarsStaggered } from 'react-icons/fa6'
 import { NavLink } from 'react-router-dom'
 import NavLinks from './NavLinks'
-import { useEffect, useState } from 'react'
 
-// set as an object
-const themes = {
-  winter: 'winter',
-  dracula: 'dracula',
-}
-
-// get theme local storage
-const getThemeFromLocalStorage = () => {
-  return localStorage.getItem('theme') || themes.winter
-}
+import { useDispatch, useSelector } from 'react-redux'
+import { toggleTheme } from '../features/user/userSlice'
 
 const Navbar = () => {
-  const [theme, setTheme] = useState(getThemeFromLocalStorage)
-
+  const numItemsInCart = useSelector((state) => state.cartState.numItemsInCart)
+  // old way was to have logic here for
+  // toggle theme and use useEffect
+  // to handle documet.add class
+  // now held in redux
+  // moved to redux for the log in / out 
+  // to keep the theme user chooses
+  const dispatch = useDispatch()
   const handleTheme = () => {
-    const { winter, dracula } = themes
-    // toggle functionality - check current and set opposite
-    const newTheme = theme === winter ? dracula : winter
-    setTheme(newTheme)
-    // document.documentElement.setAttribute('data-theme', theme)
+    dispatch(toggleTheme())
   }
-
-  // set local storage
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme)
-    localStorage.setItem('theme', theme)
-  }, [theme])
-  //
   return (
     <nav className='bg-base-200'>
       <div className='navbar align-element '>
@@ -63,17 +49,22 @@ const Navbar = () => {
         </div>
         <div className='navbar-end'>
           {/* THEME ICONS */}
-          <label className='swap swap-rotate'>
+          <label className='swap swap-rotate '>
+            {/* this hidden checkbox controls the state */}
             <input type='checkbox' onChange={handleTheme} />
-            <BsSunFill className='swap-on h-4' />
-            <BsMoonFill className='swap-off h-4' />
+
+            {/* sun icon */}
+            <BsSunFill className='swap-on h-4 w-4' />
+
+            {/* moon icon */}
+            <BsMoonFill className='swap-off h-4 w-4' />
           </label>
           {/* CART LINK*/}
           <NavLink to='cart' className='btn btn-ghost btn-circle btn-md ml-4'>
             <div className='indicator'>
               <BsCart3 className='h-6 w-6' />
               <span className='badge badge-sm badge-primary indicator-item'>
-                8
+                {numItemsInCart}
               </span>
             </div>
           </NavLink>
