@@ -7,6 +7,7 @@ const url = '/products'
 export const loader = async ({ request }) => {
   // const params = new URL(request.url).searchParams
   // const search = params.get('search')
+  // search params returns an empty array like the entries object
   const params = Object.fromEntries([
     ...new URL(request.url).searchParams.entries(),
   ])
