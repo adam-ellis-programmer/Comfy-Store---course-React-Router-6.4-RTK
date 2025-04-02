@@ -8,15 +8,15 @@ const PaginationContainer = () => {
     return index + 1
   })
   const { search, pathname } = useLocation()
-  console.log(search)
-  console.log(pathname)
+  // console.log(search)
+  // console.log(pathname)
   const navigate = useNavigate()
 
   const handlePageChange = (pageNumber) => {
     const searchParams = new URLSearchParams(search)
     searchParams.set('page', pageNumber)
     // re-navigate without overiding the search params
-    console.log(searchParams.toString())
+    // console.log(searchParams.toString())
     navigate(`${pathname}?${searchParams.toString()}`)
   }
 

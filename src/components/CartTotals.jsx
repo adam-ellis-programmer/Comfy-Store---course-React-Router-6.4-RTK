@@ -5,6 +5,9 @@ const CartTotals = () => {
     (state) => state.cartState
   )
 
+  const test = useSelector((state) => state.cartState)
+  console.log(test)
+
   return (
     <div className='card bg-base-200'>
       <div className='card-body'>
