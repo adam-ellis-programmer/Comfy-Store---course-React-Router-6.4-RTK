@@ -43,7 +43,7 @@ export default {
     extend: {},
   },
   plugins: [],
-};
+}
 ```
 
 - remove App.css
@@ -53,9 +53,9 @@ export default {
 
 ```js
 const App = () => {
-  return <div>App</div>;
-};
-export default App;
+  return <div>App</div>
+}
+export default App
 ```
 
 - Add the Tailwind directives to your CSS
@@ -78,9 +78,9 @@ Tailwind directives are instructions that decide how Tailwind CSS creates the st
 
 ```js
 const App = () => {
-  return <h1 className='text-7xl font-bold underline'>Tailwind project</h1>;
-};
-export default App;
+  return <h1 className='text-7xl font-bold underline'>Tailwind project</h1>
+}
+export default App
 ```
 
 ## Assets
@@ -132,25 +132,25 @@ pages/About.jsx
 
 ```js
 const About = () => {
-  return <h1 className='text-4xl'>About</h1>;
-};
-export default About;
+  return <h1 className='text-4xl'>About</h1>
+}
+export default About
 ```
 
 pages/index.js
 
 ```js
-export { default as HomeLayout } from './HomeLayout';
-export { default as Landing } from './Landing';
-export { default as SingleProduct } from './SingleProduct';
-export { default as Products } from './Products';
-export { default as Cart } from './Cart';
-export { default as Error } from './Error';
-export { default as About } from './About';
-export { default as Login } from './Login';
-export { default as Register } from './Register';
-export { default as Checkout } from './Checkout';
-export { default as Orders } from './Orders';
+export { default as HomeLayout } from './HomeLayout'
+export { default as Landing } from './Landing'
+export { default as SingleProduct } from './SingleProduct'
+export { default as Products } from './Products'
+export { default as Cart } from './Cart'
+export { default as Error } from './Error'
+export { default as About } from './About'
+export { default as Login } from './Login'
+export { default as Register } from './Register'
+export { default as Checkout } from './Checkout'
+export { default as Orders } from './Orders'
 ```
 
 App.jsx
@@ -168,7 +168,7 @@ import {
   Login,
   Checkout,
   Orders,
-} from './pages';
+} from './pages'
 ```
 
 ## Challenge (4) - React Router
@@ -206,7 +206,7 @@ import {
 App.jsx
 
 ```js
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 const router = createBrowserRouter([
   {
@@ -251,18 +251,18 @@ const router = createBrowserRouter([
     element: <Register />,
     errorElement: <Error />,
   },
-]);
+])
 
 const App = () => {
-  return <RouterProvider router={router} />;
-};
-export default App;
+  return <RouterProvider router={router} />
+}
+export default App
 ```
 
 HomeLayout.jsx
 
 ```js
-import { Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom'
 
 const HomeLayout = () => {
   return (
@@ -272,9 +272,9 @@ const HomeLayout = () => {
       </nav>
       <Outlet />
     </>
-  );
-};
-export default HomeLayout;
+  )
+}
+export default HomeLayout
 ```
 
 ## Challenge (5) - Error Page
@@ -317,10 +317,10 @@ export default HomeLayout;
 Error.jsx
 
 ```js
-import { useRouteError, Link } from 'react-router-dom';
+import { useRouteError, Link } from 'react-router-dom'
 const Error = () => {
-  const error = useRouteError();
-  console.log(error);
+  const error = useRouteError()
+  console.log(error)
   if (error.status === 404)
     return (
       <main className='grid min-h-[100vh] place-items-center px-8 '>
@@ -339,15 +339,15 @@ const Error = () => {
           </div>
         </div>
       </main>
-    );
+    )
 
   return (
     <main className='grid min-h-[100vh] place-items-center px-8 '>
       <h4 className='text-center font-bold text-4xl'>there was an error... </h4>
     </main>
-  );
-};
-export default Error;
+  )
+}
+export default Error
 ```
 
 ## Challenge (6) - Input Field Component
@@ -390,7 +390,7 @@ export default Error;
 components/index.js
 
 ```js
-export { default as FormInput } from './FormInput';
+export { default as FormInput } from './FormInput'
 ```
 
 FormInput.jsx
@@ -409,9 +409,9 @@ const FormInput = ({ label, name, type, defaultValue }) => {
         className='input input-bordered '
       />
     </div>
-  );
-};
-export default FormInput;
+  )
+}
+export default FormInput
 ```
 
 ## Challenge (7) - Login Page Structure
@@ -497,8 +497,8 @@ export default FormInput;
 Login.jsx
 
 ```js
-import { FormInput, SubmitBtn } from '../components';
-import { Form, Link } from 'react-router-dom';
+import { FormInput, SubmitBtn } from '../components'
+import { Form, Link } from 'react-router-dom'
 
 const Login = () => {
   return (
@@ -537,18 +537,18 @@ const Login = () => {
         </p>
       </Form>
     </section>
-  );
-};
-export default Login;
+  )
+}
+export default Login
 ```
 
 SubmitBtn.jsx
 
 ```js
-import { useNavigation } from 'react-router-dom';
+import { useNavigation } from 'react-router-dom'
 const SubmitBtn = ({ text }) => {
-  const navigation = useNavigation();
-  const isSubmitting = navigation.state === 'submitting';
+  const navigation = useNavigation()
+  const isSubmitting = navigation.state === 'submitting'
   return (
     <button
       type='submit'
@@ -564,9 +564,9 @@ const SubmitBtn = ({ text }) => {
         text || 'submit'
       )}
     </button>
-  );
-};
-export default SubmitBtn;
+  )
+}
+export default SubmitBtn
 ```
 
 ## Challenge (8) - Register Page Structure
@@ -615,8 +615,8 @@ export default SubmitBtn;
 ## Solution (8) - Register Page Structure
 
 ```js
-import { FormInput, SubmitBtn } from '../components';
-import { Form, Link } from 'react-router-dom';
+import { FormInput, SubmitBtn } from '../components'
+import { Form, Link } from 'react-router-dom'
 
 const Register = () => {
   return (
@@ -644,9 +644,9 @@ const Register = () => {
         </p>
       </Form>
     </section>
-  );
-};
-export default Register;
+  )
+}
+export default Register
 ```
 
 ## Challenge (9) - Custom Class
@@ -708,7 +708,7 @@ index.css
 ## Solution (10) - Header Component
 
 ```js
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
@@ -726,9 +726,9 @@ const Header = () => {
         </div>
       </div>
     </header>
-  );
-};
-export default Header;
+  )
+}
+export default Header
 ```
 
 ## Challenge (11) - Navbar Structure
@@ -786,9 +786,9 @@ export default Header;
 ## Solution (11) - Navbar Structure
 
 ```js
-import { BsCart3, BsMoonFill, BsSunFill } from 'react-icons/bs';
-import { FaBarsStaggered } from 'react-icons/fa6';
-import { NavLink } from 'react-router-dom';
+import { BsCart3, BsMoonFill, BsSunFill } from 'react-icons/bs'
+import { FaBarsStaggered } from 'react-icons/fa6'
+import { NavLink } from 'react-router-dom'
 
 const Navbar = () => {
   return (
@@ -832,9 +832,9 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
-  );
-};
-export default Navbar;
+  )
+}
+export default Navbar
 ```
 
 ## Challenge (12) - NavLinks
@@ -881,26 +881,26 @@ const links = [
   { id: 4, url: 'cart', text: 'cart' },
   { id: 5, url: 'checkout', text: 'checkout' },
   { id: 6, url: 'orders', text: 'orders' },
-];
-import { NavLink } from 'react-router-dom';
+]
+import { NavLink } from 'react-router-dom'
 
 const NavLinks = () => {
   return (
     <>
       {links.map((link) => {
-        const { id, url, text } = link;
+        const { id, url, text } = link
         return (
           <li key={id}>
             <NavLink className='capitalize' to={url}>
               {text}
             </NavLink>
           </li>
-        );
+        )
       })}
     </>
-  );
-};
-export default NavLinks;
+  )
+}
+export default NavLinks
 ```
 
 ## Challenge (13) - Toggle Component
@@ -910,14 +910,14 @@ export default NavLinks;
 ## Solution (13) - Toggle Component
 
 ```js
-import { useState } from 'react';
+import { useState } from 'react'
 
-const [theme, setTheme] = useState(false);
+const [theme, setTheme] = useState(false)
 
 const handleTheme = () => {
-  setTheme(!theme);
-};
-<div className='navbar-end'>
+  setTheme(!theme)
+}
+;<div className='navbar-end'>
   <label className='swap swap-rotate '>
     {/* this hidden checkbox controls the state */}
     <input type='checkbox' onChange={handleTheme} />
@@ -928,7 +928,7 @@ const handleTheme = () => {
     {/* moon icon */}
     <BsMoonFill className='swap-off h-4 w-4' />
   </label>
-</div>;
+</div>
 ```
 
 ## Challenge (14) - Set Themes
@@ -1052,9 +1052,9 @@ const About = () => {
         Assumenda molestias harum dignissimos?
       </p>
     </>
-  );
-};
-export default About;
+  )
+}
+export default About
 ```
 
 ## Challenge (17) - Hero Component
@@ -1086,14 +1086,14 @@ export default About;
 Hero.jsx
 
 ```js
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
-import hero1 from '../assets/hero1.webp';
-import hero2 from '../assets/hero2.webp';
-import hero3 from '../assets/hero3.webp';
-import hero4 from '../assets/hero4.webp';
+import hero1 from '../assets/hero1.webp'
+import hero2 from '../assets/hero2.webp'
+import hero3 from '../assets/hero3.webp'
+import hero4 from '../assets/hero4.webp'
 
-const carouselImages = [hero1, hero2, hero3, hero4];
+const carouselImages = [hero1, hero2, hero3, hero4]
 const Hero = () => {
   return (
     <div className=' grid grid-cols-1 lg:grid-cols-2 gap-24 items-center'>
@@ -1123,13 +1123,13 @@ const Hero = () => {
                 className='rounded-box h-full w-80  object-cover'
               />
             </div>
-          );
+          )
         })}
       </div>
     </div>
-  );
-};
-export default Hero;
+  )
+}
+export default Hero
 ```
 
 ## Challenge (18) - Axios Custom Instance
@@ -1144,13 +1144,13 @@ export default Hero;
 ## Challenge (18) - Axios Custom Instance
 
 ```js
-import axios from 'axios';
+import axios from 'axios'
 
-const productionUrl = 'https://strapi-store-server.onrender.com/api';
+const productionUrl = 'https://strapi-store-server.onrender.com/api'
 
 export const customFetch = axios.create({
   baseURL: productionUrl,
-});
+})
 ```
 
 ## Challenge (19) - Landing Loader
@@ -1188,22 +1188,22 @@ export const customFetch = axios.create({
 ErrorElement.jsx
 
 ```js
-import { useRouteError } from 'react-router-dom';
+import { useRouteError } from 'react-router-dom'
 const ErrorElement = () => {
-  const error = useRouteError();
-  console.log(error);
+  const error = useRouteError()
+  console.log(error)
 
-  return <h4 className='font-bold text-4xl'>there was an error... </h4>;
-};
-export default ErrorElement;
+  return <h4 className='font-bold text-4xl'>there was an error... </h4>
+}
+export default ErrorElement
 ```
 
 App.jsx
 
 ```js
-import { ErrorElement } from './components';
+import { ErrorElement } from './components'
 // loaders
-import { loader as landingLoader } from './pages/Landing';
+import { loader as landingLoader } from './pages/Landing'
 // actions
 
 const router = createBrowserRouter([
@@ -1220,32 +1220,32 @@ const router = createBrowserRouter([
       },
     ],
   },
-]);
+])
 ```
 
 Landing.js
 
 ```js
-import { Hero } from '../components';
+import { Hero } from '../components'
 
-import { customFetch } from '../utils';
-const url = '/products?featured=true';
+import { customFetch } from '../utils'
+const url = '/products?featured=true'
 
 export const loader = async () => {
-  const response = await customFetch(url);
-  console.log(response);
-  const products = response.data.data;
-  return { products };
-};
+  const response = await customFetch(url)
+  console.log(response)
+  const products = response.data.data
+  return { products }
+}
 
 const Landing = () => {
   return (
     <>
       <Hero />
     </>
-  );
-};
-export default Landing;
+  )
+}
+export default Landing
 ```
 
 ## Challenge (20) - Featured Products
@@ -1336,39 +1336,39 @@ const SectionTitle = ({ text }) => {
     <div className='border-b border-base-300 pb-5'>
       <h2 className='text-3xl font-medium tracking-wider capitalize'>{text}</h2>
     </div>
-  );
-};
-export default SectionTitle;
+  )
+}
+export default SectionTitle
 ```
 
 FeaturedProducts.jsx
 
 ```js
-import ProductsGrid from './ProductsGrid';
-import SectionTitle from './SectionTitle';
+import ProductsGrid from './ProductsGrid'
+import SectionTitle from './SectionTitle'
 const FeaturedProducts = () => {
   return (
     <div className='pt-24 '>
       <SectionTitle text='featured products' />
       <ProductsGrid />
     </div>
-  );
-};
-export default FeaturedProducts;
+  )
+}
+export default FeaturedProducts
 ```
 
 ProductsGrid.jsx
 
 ```js
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom'
 const ProductsGrid = () => {
-  const { products } = useLoaderData();
+  const { products } = useLoaderData()
 
   return (
     <div className='pt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3 '>
       {products.map((product) => {
-        const { title, price, image } = product.attributes;
-        const dollarsAmount = price;
+        const { title, price, image } = product.attributes
+        const dollarsAmount = price
         return (
           <Link
             key={product.id}
@@ -1387,12 +1387,12 @@ const ProductsGrid = () => {
               <span className='text-secondary'>{dollarsAmount}</span>
             </div>
           </Link>
-        );
+        )
       })}
     </div>
-  );
-};
-export default ProductsGrid;
+  )
+}
+export default ProductsGrid
 ```
 
 ## Challenge (21) - Format Price
@@ -1411,9 +1411,9 @@ export const formatPrice = (price) => {
   const dollarsAmount = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
-  }).format((price / 100).toFixed(2));
-  return dollarsAmount;
-};
+  }).format((price / 100).toFixed(2))
+  return dollarsAmount
+}
 ```
 
 ## Challenge (22) - Single Product
@@ -1490,27 +1490,27 @@ export const formatPrice = (price) => {
 - import and setup loader in the App.jsx
 
 ```js
-import { useLoaderData } from 'react-router-dom';
-import { formatPrice, customFetch } from '../utils';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useLoaderData } from 'react-router-dom'
+import { formatPrice, customFetch } from '../utils'
+import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 export const loader = async ({ params }) => {
-  const response = await customFetch(`/products/${params.id}`);
-  return { product: response.data.data };
-};
+  const response = await customFetch(`/products/${params.id}`)
+  return { product: response.data.data }
+}
 
 const SingleProduct = () => {
-  const { product } = useLoaderData();
+  const { product } = useLoaderData()
   const { image, title, price, description, colors, company } =
-    product.attributes;
-  const dollarsAmount = formatPrice(price);
-  const [productColor, setProductColor] = useState(colors[0]);
-  const [amount, setAmount] = useState(1);
+    product.attributes
+  const dollarsAmount = formatPrice(price)
+  const [productColor, setProductColor] = useState(colors[0])
+  const [amount, setAmount] = useState(1)
 
   const handleAmount = (e) => {
-    setAmount(parseInt(e.target.value));
-  };
+    setAmount(parseInt(e.target.value))
+  }
 
   return (
     <section>
@@ -1560,7 +1560,7 @@ const SingleProduct = () => {
                     style={{ backgroundColor: color }}
                     onClick={() => setProductColor(color)}
                   ></button>
-                );
+                )
               })}
             </div>
           </div>
@@ -1593,9 +1593,9 @@ const SingleProduct = () => {
         </div>
       </div>
     </section>
-  );
-};
-export default SingleProduct;
+  )
+}
+export default SingleProduct
 ```
 
 <!-- EXTRA CREDIT -->
@@ -1607,15 +1607,15 @@ index.jsx
 ```js
 export const generateAmountOptions = (number) => {
   return Array.from({ length: number }, (_, index) => {
-    const amount = index + 1;
+    const amount = index + 1
 
     return (
       <option key={amount} value={amount}>
         {amount}
       </option>
-    );
-  });
-};
+    )
+  })
+}
 ```
 
 Array.from({ length: number }, (_, index) => { ... }): This part uses the Array.from method to create an array of a specific length, determined by the number parameter. The second argument of the Array.from method is a callback function that will be invoked for each element in the array. The underscore (_) is a placeholder for the current element (which we don't need in this case), and index is the index of the current element.
@@ -1674,17 +1674,17 @@ const amount = index + 1;: Inside the callback function, this line calculates th
 Products.jsx
 
 ```js
-import { Filters, PaginationContainer, ProductsContainer } from '../components';
-import { customFetch } from '../utils';
+import { Filters, PaginationContainer, ProductsContainer } from '../components'
+import { customFetch } from '../utils'
 
-const url = '/products';
+const url = '/products'
 export const loader = async ({ request }) => {
-  const response = await customFetch(url);
+  const response = await customFetch(url)
 
-  const products = response.data.data;
-  const meta = response.data.meta;
-  return { products, meta };
-};
+  const products = response.data.data
+  const meta = response.data.meta
+  return { products, meta }
+}
 
 const Products = () => {
   return (
@@ -1693,9 +1693,9 @@ const Products = () => {
       <ProductsContainer />
       <PaginationContainer />
     </>
-  );
-};
-export default Products;
+  )
+}
+export default Products
 ```
 
 ## Challenge (24) - Products Container
@@ -1801,16 +1801,16 @@ export default Products;
 ProductsList.jsx
 
 ```js
-import { formatPrice } from '../utils';
-import { Link, useLoaderData } from 'react-router-dom';
+import { formatPrice } from '../utils'
+import { Link, useLoaderData } from 'react-router-dom'
 
 const ProductList = () => {
-  const { products } = useLoaderData();
+  const { products } = useLoaderData()
   return (
     <div className='mt-12 grid gap-y-8'>
       {products.map((product) => {
-        const { title, price, image, company } = product.attributes;
-        const dollarsAmount = formatPrice(price);
+        const { title, price, image, company } = product.attributes
+        const dollarsAmount = formatPrice(price)
 
         return (
           <Link
@@ -1836,36 +1836,36 @@ const ProductList = () => {
               {dollarsAmount}
             </p>
           </Link>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}
 
-export default ProductList;
+export default ProductList
 ```
 
 ProductsContainer.jsx
 
 ```js
-import { useLoaderData } from 'react-router-dom';
-import ProductsGrid from './ProductsGrid';
-import ProductsList from './ProductsList';
-import { useState } from 'react';
-import { BsFillGridFill, BsList } from 'react-icons/bs';
+import { useLoaderData } from 'react-router-dom'
+import ProductsGrid from './ProductsGrid'
+import ProductsList from './ProductsList'
+import { useState } from 'react'
+import { BsFillGridFill, BsList } from 'react-icons/bs'
 
 const ProductsContainer = () => {
-  const { meta } = useLoaderData();
-  const totalProducts = meta.pagination.total;
-  const [layout, setLayout] = useState('grid');
+  const { meta } = useLoaderData()
+  const totalProducts = meta.pagination.total
+  const [layout, setLayout] = useState('grid')
 
   const setActiveStyles = (pattern) => {
     return `text-xl btn btn-circle btn-sm ${
       pattern === layout
         ? 'btn-primary text-primary-content'
         : 'btn-ghost text-base-content'
-    }`;
-  };
+    }`
+  }
 
   return (
     <>
@@ -1904,10 +1904,10 @@ const ProductsContainer = () => {
         )}
       </div>
     </>
-  );
-};
+  )
+}
 
-export default ProductsContainer;
+export default ProductsContainer
 ```
 
 ## Challenge (25) - Filters (Search Input)
@@ -1933,16 +1933,16 @@ const FormInput = ({ label, name, type, defaultValue, size }) => {
         className={`input input-bordered ${size}`}
       />
     </div>
-  );
-};
-export default FormInput;
+  )
+}
+export default FormInput
 ```
 
 Filters.jsx
 
 ```js
-import { Form, useLoaderData, Link } from 'react-router-dom';
-import FormInput from './FormInput';
+import { Form, useLoaderData, Link } from 'react-router-dom'
+import FormInput from './FormInput'
 
 const Filters = () => {
   return (
@@ -1962,9 +1962,9 @@ const Filters = () => {
         reset
       </Link>
     </Form>
-  );
-};
-export default Filters;
+  )
+}
+export default Filters
 ```
 
 ## Challenge (26) - Filters (Select Input)
@@ -2029,47 +2029,47 @@ const FormSelect = ({ label, name, list, defaultValue, size }) => {
             <option key={item} value={item}>
               {item}
             </option>
-          );
+          )
         })}
       </select>
     </div>
-  );
-};
-export default FormSelect;
+  )
+}
+export default FormSelect
 ```
 
 Filters.jsx
 
 ```js
-const { meta } = useLoaderData();
+const { meta } = useLoaderData()
 
 {
   /* CATEGORIES */
 }
-<FormSelect
+;<FormSelect
   label='select category'
   name='category'
   list={meta.categories}
   size='select-sm'
-/>;
+/>
 {
   /* COMPANIES */
 }
-<FormSelect
+;<FormSelect
   label='select company'
   name='company'
   list={meta.companies}
   size='select-sm'
-/>;
+/>
 {
   /* ORDER */
 }
-<FormSelect
+;<FormSelect
   label='sort by'
   name='order'
   list={['a-z', 'z-a', 'high', 'low']}
   size='select-sm'
-/>;
+/>
 ```
 
 ## Challenge (27) - Filters (Price)
@@ -2120,12 +2120,12 @@ const { meta } = useLoaderData();
 FormRange.jsx
 
 ```js
-import { formatPrice } from '../utils';
-import { useState } from 'react';
+import { formatPrice } from '../utils'
+import { useState } from 'react'
 const FormRange = ({ label, name, size }) => {
-  const step = 1000;
-  const maxPrice = 100000;
-  const [selectedPrice, setSelectedPrice] = useState(maxPrice);
+  const step = 1000
+  const maxPrice = 100000
+  const [selectedPrice, setSelectedPrice] = useState(maxPrice)
 
   return (
     <div className='form-control'>
@@ -2148,9 +2148,9 @@ const FormRange = ({ label, name, size }) => {
         <span className='font-bold text-md'>Max : {formatPrice(maxPrice)}</span>
       </div>
     </div>
-  );
-};
-export default FormRange;
+  )
+}
+export default FormRange
 ```
 
 Filters.jsx
@@ -2159,7 +2159,7 @@ Filters.jsx
 {
   /* PRICE */
 }
-<FormRange label='select price' name='price' size='range-sm' />;
+;<FormRange label='select price' name='price' size='range-sm' />
 ```
 
 ## Challenge (28) - Filters (Shipping)
@@ -2217,9 +2217,9 @@ const FormCheckbox = ({ label, name, defaultValue, size }) => {
         className={`checkbox checkbox-primary ${size}`}
       />
     </div>
-  );
-};
-export default FormCheckbox;
+  )
+}
+export default FormCheckbox
 ```
 
 Filters.jsx
@@ -2228,7 +2228,7 @@ Filters.jsx
 {
   /* SHIPPING */
 }
-<FormCheckbox label='free shipping' name='shipping' size='checkbox-sm' />;
+;<FormCheckbox label='free shipping' name='shipping' size='checkbox-sm' />
 ```
 
 ## Challenge (29) - Global Loading
@@ -2306,17 +2306,17 @@ const Loading = () => {
     <div className='h-screen flex items-center justify-center'>
       <span className='loading loading-ring loading-lg' />
     </div>
-  );
-};
-export default Loading;
+  )
+}
+export default Loading
 ```
 
 ```js
-import { Outlet, useNavigation } from 'react-router-dom';
-import { Navbar, Loading, Header } from '../components';
+import { Outlet, useNavigation } from 'react-router-dom'
+import { Navbar, Loading, Header } from '../components'
 const HomeLayout = () => {
-  const navigation = useNavigation();
-  const isPageLoading = navigation.state === 'loading';
+  const navigation = useNavigation()
+  const isPageLoading = navigation.state === 'loading'
   return (
     <>
       <Header />
@@ -2329,9 +2329,9 @@ const HomeLayout = () => {
         </section>
       )}
     </>
-  );
-};
-export default HomeLayout;
+  )
+}
+export default HomeLayout
 ```
 
 ## Challenge (30) - Setup Params
@@ -2353,27 +2353,27 @@ Products.jsx
 export const loader = async ({ request }) => {
   const params = Object.fromEntries([
     ...new URL(request.url).searchParams.entries(),
-  ]);
-  const response = await customFetch(url, { params });
+  ])
+  const response = await customFetch(url, { params })
 
-  const products = response.data.data;
-  const meta = response.data.meta;
+  const products = response.data.data
+  const meta = response.data.meta
 
-  return { products, meta, params };
-};
+  return { products, meta, params }
+}
 ```
 
 Filters.jsx
 
 ```js
-import { Form, useLoaderData, Link } from 'react-router-dom';
-import FormInput from './FormInput';
-import FormSelect from './FormSelect';
-import FormRange from './FormRange';
-import FormCheckbox from './FormCheckbox';
+import { Form, useLoaderData, Link } from 'react-router-dom'
+import FormInput from './FormInput'
+import FormSelect from './FormSelect'
+import FormRange from './FormRange'
+import FormCheckbox from './FormCheckbox'
 const Filters = () => {
-  const { meta, params } = useLoaderData();
-  const { search, company, category, shipping, order, price } = params;
+  const { meta, params } = useLoaderData()
+  const { search, company, category, shipping, order, price } = params
   return (
     <Form className='bg-base-200 rounded-md px-8 py-4 grid gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center'>
       {/* SEARCH */}
@@ -2430,15 +2430,15 @@ const Filters = () => {
         reset
       </Link>
     </Form>
-  );
-};
-export default Filters;
+  )
+}
+export default Filters
 ```
 
 ```js
 const params = Object.fromEntries([
   ...new URL(request.url).searchParams.entries(),
-]);
+])
 ```
 
 It takes a URL string from the request.url property.
@@ -2513,24 +2513,24 @@ It uses Object.fromEntries() to create a new object where the key-value pairs be
 PaginationContainer.jsx
 
 ```js
-import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
+import { useLoaderData, useLocation, useNavigate } from 'react-router-dom'
 
 const PaginationContainer = () => {
-  const { meta } = useLoaderData();
-  const { pageCount, page } = meta.pagination;
+  const { meta } = useLoaderData()
+  const { pageCount, page } = meta.pagination
   const pages = Array.from({ length: pageCount }, (_, index) => {
-    return index + 1;
-  });
-  const { search, pathname } = useLocation();
-  const navigate = useNavigate();
+    return index + 1
+  })
+  const { search, pathname } = useLocation()
+  const navigate = useNavigate()
 
   const handlePageChange = (pageNumber) => {
-    const searchParams = new URLSearchParams(search);
-    searchParams.set('page', pageNumber);
-    navigate(`${pathname}?${searchParams.toString()}`);
-  };
+    const searchParams = new URLSearchParams(search)
+    searchParams.set('page', pageNumber)
+    navigate(`${pathname}?${searchParams.toString()}`)
+  }
 
-  if (pageCount < 2) return null;
+  if (pageCount < 2) return null
 
   return (
     <div className='mt-16 flex justify-end'>
@@ -2538,9 +2538,9 @@ const PaginationContainer = () => {
         <button
           className='btn btn-xs sm:btn-md join-item'
           onClick={() => {
-            let prevPage = page - 1;
-            if (prevPage < 1) prevPage = pageCount;
-            handlePageChange(prevPage);
+            let prevPage = page - 1
+            if (prevPage < 1) prevPage = pageCount
+            handlePageChange(prevPage)
           }}
         >
           Prev
@@ -2556,23 +2556,23 @@ const PaginationContainer = () => {
             >
               {pageNumber}
             </button>
-          );
+          )
         })}
         <button
           className='btn btn-xs sm:btn-md join-item'
           onClick={() => {
-            let nextPage = page + 1;
-            if (nextPage > pageCount) nextPage = 1;
-            handlePageChange(nextPage);
+            let nextPage = page + 1
+            if (nextPage > pageCount) nextPage = 1
+            handlePageChange(nextPage)
           }}
         >
           Next
         </button>
       </div>
     </div>
-  );
-};
-export default PaginationContainer;
+  )
+}
+export default PaginationContainer
 ```
 
 ## Challenge (32) - Setup RTK and react-toastify
@@ -2629,8 +2629,8 @@ export default PaginationContainer;
 features/cart/cartSlice.js
 
 ```js
-import { createSlice } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
+import { createSlice } from '@reduxjs/toolkit'
+import { toast } from 'react-toastify'
 
 const defaultState = {
   cartItems: [],
@@ -2639,59 +2639,59 @@ const defaultState = {
   shipping: 500,
   tax: 0,
   orderTotal: 0,
-};
+}
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState: defaultState,
   reducers: {
     addItem: (state, action) => {
-      console.log(action.payload);
+      console.log(action.payload)
     },
     clearCart: (state) => {},
 
     removeItem: (state, action) => {},
     editItem: (state, action) => {},
   },
-});
+})
 
-export const { addItem, removeItem, editItem, clearCart } = cartSlice.actions;
+export const { addItem, removeItem, editItem, clearCart } = cartSlice.actions
 
-export default cartSlice.reducer;
+export default cartSlice.reducer
 ```
 
 store.js
 
 ```js
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit'
 
-import cartReducer from './features/cart/cartSlice';
+import cartReducer from './features/cart/cartSlice'
 export const store = configureStore({
   reducer: {
     cartState: cartReducer,
   },
-});
+})
 ```
 
 main.jsx
 
 ```js
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
-import 'react-toastify/dist/ReactToastify.css';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import 'react-toastify/dist/ReactToastify.css'
 // order
-import './index.css';
+import './index.css'
 
-import { ToastContainer } from 'react-toastify';
-import { store } from './store';
-import { Provider } from 'react-redux';
+import { ToastContainer } from 'react-toastify'
+import { store } from './store'
+import { Provider } from 'react-redux'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <App />
     <ToastContainer position='top-center' />
   </Provider>
-);
+)
 ```
 
 ## Challenge (33) - Add Product (SingleProductPage)
@@ -2704,10 +2704,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 SingleProduct.jsx
 
 ```js
-import { useDispatch } from 'react-redux';
-import { addItem } from '../features/cart/cartSlice';
+import { useDispatch } from 'react-redux'
+import { addItem } from '../features/cart/cartSlice'
 const SingleProduct = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const cartProduct = {
     cartID: product.id + productColor,
     productID: product.id,
@@ -2717,11 +2717,11 @@ const SingleProduct = () => {
     amount,
     productColor,
     company,
-  };
+  }
 
   const addToCart = () => {
-    dispatch(addItem({ product: cartProduct }));
-  };
+    dispatch(addItem({ product: cartProduct }))
+  }
   return (
     <section>
       ....
@@ -2732,8 +2732,8 @@ const SingleProduct = () => {
         </button>
       </div>
     </section>
-  );
-};
+  )
+}
 ```
 
 ## Challenge (34) - AddItem Reducer
@@ -2785,8 +2785,8 @@ const SingleProduct = () => {
 Navbar.jsx
 
 ```js
-import { useSelector } from 'react-redux';
-const numItemsInCart = useSelector((state) => state.cartState.numItemsInCart);
+import { useSelector } from 'react-redux'
+const numItemsInCart = useSelector((state) => state.cartState.numItemsInCart)
 ```
 
 cartSlice.js
@@ -2835,8 +2835,8 @@ cartSlice.js
 ## Solution (35) - Refactor and Setup Local Storage
 
 ```js
-import { createSlice } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
+import { createSlice } from '@reduxjs/toolkit'
+import { toast } from 'react-toastify'
 
 const defaultState = {
   cartItems: [],
@@ -2845,29 +2845,29 @@ const defaultState = {
   shipping: 500,
   tax: 0,
   orderTotal: 0,
-};
+}
 
 const getCartFromLocalStorage = () => {
-  return JSON.parse(localStorage.getItem('cart')) || defaultState;
-};
+  return JSON.parse(localStorage.getItem('cart')) || defaultState
+}
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState: getCartFromLocalStorage(),
   reducers: {
     addItem: (state, action) => {
-      const { product } = action.payload;
+      const { product } = action.payload
 
-      const item = state.cartItems.find((i) => i.cartID === product.cartID);
+      const item = state.cartItems.find((i) => i.cartID === product.cartID)
       if (item) {
-        item.amount += product.amount;
+        item.amount += product.amount
       } else {
-        state.cartItems.push(product);
+        state.cartItems.push(product)
       }
-      state.numItemsInCart += product.amount;
-      state.cartTotal += product.price * product.amount;
-      cartSlice.caseReducers.calculateTotals(state);
-      toast.success('item added to cart');
+      state.numItemsInCart += product.amount
+      state.cartTotal += product.price * product.amount
+      cartSlice.caseReducers.calculateTotals(state)
+      toast.success('item added to cart')
     },
     clearCart: (state) => {},
 
@@ -2875,16 +2875,16 @@ const cartSlice = createSlice({
     editItem: (state, action) => {},
 
     calculateTotals: (state) => {
-      state.tax = 0.1 * state.cartTotal;
-      state.orderTotal = state.cartTotal + state.shipping + state.tax;
-      localStorage.setItem('cart', JSON.stringify(state));
+      state.tax = 0.1 * state.cartTotal
+      state.orderTotal = state.cartTotal + state.shipping + state.tax
+      localStorage.setItem('cart', JSON.stringify(state))
     },
   },
-});
+})
 
-export const { addItem, removeItem, editItem, clearCart } = cartSlice.actions;
+export const { addItem, removeItem, editItem, clearCart } = cartSlice.actions
 
-export default cartSlice.reducer;
+export default cartSlice.reducer
 ```
 
 ## Challenge (36) - Clear Cart, Remove Item and Edit Item
@@ -2963,8 +2963,8 @@ export default cartSlice.reducer;
 ## Solution (36) - Clear Cart, Remove Item and Edit Item
 
 ```js
-import { createSlice } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
+import { createSlice } from '@reduxjs/toolkit'
+import { toast } from 'react-toastify'
 
 const defaultState = {
   cartItems: [],
@@ -2973,70 +2973,70 @@ const defaultState = {
   shipping: 500,
   tax: 0,
   orderTotal: 0,
-};
+}
 
 const getCartFromLocalStorage = () => {
-  return JSON.parse(localStorage.getItem('cart')) || defaultState;
-};
+  return JSON.parse(localStorage.getItem('cart')) || defaultState
+}
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState: getCartFromLocalStorage(),
   reducers: {
     addItem: (state, action) => {
-      const { product } = action.payload;
+      const { product } = action.payload
 
-      const item = state.cartItems.find((i) => i.cartID === product.cartID);
+      const item = state.cartItems.find((i) => i.cartID === product.cartID)
       if (item) {
-        item.amount += product.amount;
+        item.amount += product.amount
       } else {
-        state.cartItems.push(product);
+        state.cartItems.push(product)
       }
-      state.numItemsInCart += product.amount;
-      state.cartTotal += product.price * product.amount;
-      cartSlice.caseReducers.calculateTotals(state);
-      toast.success('item added to cart');
+      state.numItemsInCart += product.amount
+      state.cartTotal += product.price * product.amount
+      cartSlice.caseReducers.calculateTotals(state)
+      toast.success('item added to cart')
     },
     clearCart: (state) => {
-      localStorage.setItem('cart', JSON.stringify(defaultState));
-      return defaultState;
+      localStorage.setItem('cart', JSON.stringify(defaultState))
+      return defaultState
     },
 
     removeItem: (state, action) => {
-      const { cartID } = action.payload;
-      const product = state.cartItems.find((i) => i.cartID === cartID);
-      state.cartItems = state.cartItems.filter((i) => i.cartID !== cartID);
+      const { cartID } = action.payload
+      const product = state.cartItems.find((i) => i.cartID === cartID)
+      state.cartItems = state.cartItems.filter((i) => i.cartID !== cartID)
 
-      state.numItemsInCart -= product.amount;
-      state.cartTotal -= product.price * product.amount;
-      cartSlice.caseReducers.calculateTotals(state);
-      toast.error('Item removed from cart');
+      state.numItemsInCart -= product.amount
+      state.cartTotal -= product.price * product.amount
+      cartSlice.caseReducers.calculateTotals(state)
+      toast.error('Item removed from cart')
     },
     editItem: (state, action) => {
-      const { cartID, amount } = action.payload;
-      const item = state.cartItems.find((i) => i.cartID === cartID);
-      state.numItemsInCart += amount - item.amount;
-      state.cartTotal += item.price * (amount - item.amount);
-      item.amount = amount;
-      cartSlice.caseReducers.calculateTotals(state);
-      toast.success('Cart updated');
+      const { cartID, amount } = action.payload
+      const item = state.cartItems.find((i) => i.cartID === cartID)
+      state.numItemsInCart += amount - item.amount
+      state.cartTotal += item.price * (amount - item.amount)
+      item.amount = amount
+      cartSlice.caseReducers.calculateTotals(state)
+      toast.success('Cart updated')
     },
 
     calculateTotals: (state) => {
-      state.tax = 0.1 * state.cartTotal;
-      state.orderTotal = state.cartTotal + state.shipping + state.tax;
-      localStorage.setItem('cart', JSON.stringify(state));
+      state.tax = 0.1 * state.cartTotal
+      state.orderTotal = state.cartTotal + state.shipping + state.tax
+      localStorage.setItem('cart', JSON.stringify(state))
     },
   },
-});
+})
 
-export const { addItem, removeItem, editItem, clearCart } = cartSlice.actions;
+export const { addItem, removeItem, editItem, clearCart } = cartSlice.actions
 
-export default cartSlice.reducer;
+export default cartSlice.reducer
 ```
 
 ```js
-state.numItemsInCart += amount - item.amount;
+state.numItemsInCart += amount - item.amount
 ```
 
 The logic here is to update the total number of items in the cart (state.numItemsInCart) by adjusting it based on the difference between the provided amount and the existing quantity of that item (item.amount). If amount is greater than item.amount, it means that items are being added to the cart. If amount is less than item.amount, it means that items are being removed from the cart. If they are equal, it implies no change to the quantity of that item in the cart.
@@ -3044,7 +3044,7 @@ The logic here is to update the total number of items in the cart (state.numItem
 The result of the subtraction (amount - item.amount) is then added to the current state.numItemsInCart to reflect the new total number of items in the cart.
 
 ```js
-state.cartTotal += item.price * (amount - item.amount);
+state.cartTotal += item.price * (amount - item.amount)
 ```
 
 In this line, the logic is calculating the change in the total cost of the cart (state.cartTotal) based on the price of the item (item.price) and the change in the quantity of that item (amount - item.amount). This calculation is then added to the current state.cartTotal.
@@ -3103,16 +3103,16 @@ If amount is greater than item.amount, it means more items are being added, so t
 pages/Cart.jsx
 
 ```js
-import { useSelector } from 'react-redux';
-import { CartItemsList, SectionTitle, CartTotals } from '../components';
-import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux'
+import { CartItemsList, SectionTitle, CartTotals } from '../components'
+import { Link } from 'react-router-dom'
 
 const Cart = () => {
   // temp
-  const user = null;
-  const numItemsInCart = useSelector((state) => state.cartState.numItemsInCart);
+  const user = null
+  const numItemsInCart = useSelector((state) => state.cartState.numItemsInCart)
   if (numItemsInCart === 0) {
-    return <SectionTitle text='Your cart is empty' />;
+    return <SectionTitle text='Your cart is empty' />
   }
   return (
     <>
@@ -3135,9 +3135,9 @@ const Cart = () => {
         </div>
       </div>
     </>
-  );
-};
-export default Cart;
+  )
+}
+export default Cart
 ```
 
 ## Challenge (38) - Cart Totals
@@ -3181,12 +3181,12 @@ export default Cart;
 ## Solution (38) - Cart Totals
 
 ```js
-import { useSelector } from 'react-redux';
-import { formatPrice } from '../utils';
+import { useSelector } from 'react-redux'
+import { formatPrice } from '../utils'
 const CartTotals = () => {
   const { cartTotal, shipping, tax, orderTotal } = useSelector(
     (state) => state.cartState
-  );
+  )
 
   return (
     <div className='card bg-base-200'>
@@ -3213,9 +3213,9 @@ const CartTotals = () => {
         </p>
       </div>
     </div>
-  );
-};
-export default CartTotals;
+  )
+}
+export default CartTotals
 ```
 
 ## Challenge (39) - Cart Items List
@@ -3296,40 +3296,40 @@ export default CartTotals;
 CartItemsList.jsx
 
 ```js
-import { useSelector } from 'react-redux';
-import CartItem from './CartItem';
+import { useSelector } from 'react-redux'
+import CartItem from './CartItem'
 const CartItemsList = () => {
-  const cartItems = useSelector((state) => state.cartState.cartItems);
+  const cartItems = useSelector((state) => state.cartState.cartItems)
 
   return (
     <div>
       {cartItems.map((item) => {
-        return <CartItem key={item.cartID} cartItem={item} />;
+        return <CartItem key={item.cartID} cartItem={item} />
       })}
     </div>
-  );
-};
-export default CartItemsList;
+  )
+}
+export default CartItemsList
 ```
 
 CartItem.jsx
 
 ```js
-import { formatPrice, generateAmountOptions } from '../utils';
-import { removeItem, editItem } from '../features/cart/cartSlice';
-import { useDispatch } from 'react-redux';
+import { formatPrice, generateAmountOptions } from '../utils'
+import { removeItem, editItem } from '../features/cart/cartSlice'
+import { useDispatch } from 'react-redux'
 const CartItem = ({ cartItem }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const removeItemFromTheCart = () => {
-    dispatch(removeItem({ cartID }));
-  };
+    dispatch(removeItem({ cartID }))
+  }
   const handleAmount = (e) => {
-    dispatch(editItem({ cartID, amount: parseInt(e.target.value) }));
-  };
+    dispatch(editItem({ cartID, amount: parseInt(e.target.value) }))
+  }
 
   const { cartID, title, price, image, amount, company, productColor } =
-    cartItem;
+    cartItem
 
   return (
     <article
@@ -3387,9 +3387,9 @@ const CartItem = ({ cartItem }) => {
       {/* PRICE */}
       <p className='font-medium sm:ml-auto'>{formatPrice(price)}</p>
     </article>
-  );
-};
-export default CartItem;
+  )
+}
+export default CartItem
 ```
 
 CartItem.jsx
@@ -3446,49 +3446,49 @@ CartItem.jsx
 ## Solution (40) - Setup User Slice
 
 ```js
-import { createSlice } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
+import { createSlice } from '@reduxjs/toolkit'
+import { toast } from 'react-toastify'
 
 const initialState = {
   user: { username: 'coding addict' },
   theme: 'dracula',
-};
+}
 
 const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
     loginUser: (state, action) => {
-      console.log('login');
+      console.log('login')
     },
     logoutUser: (state) => {
-      console.log('logout');
+      console.log('logout')
     },
     toggleTheme: (state) => {
-      console.log('toggle theme');
+      console.log('toggle theme')
     },
   },
-});
+})
 
-export const { loginUser, logoutUser, toggleTheme } = userSlice.actions;
+export const { loginUser, logoutUser, toggleTheme } = userSlice.actions
 
-export default userSlice.reducer;
+export default userSlice.reducer
 ```
 
 store.js
 
 ```js
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit'
 
-import cartReducer from './features/cart/cartSlice';
-import userReducer from './features/user/userSlice';
+import cartReducer from './features/cart/cartSlice'
+import userReducer from './features/user/userSlice'
 
 export const store = configureStore({
   reducer: {
     cartState: cartReducer,
     userState: userReducer,
   },
-});
+})
 ```
 
 ## Challenge (41) - Move Theme Logic
@@ -3500,67 +3500,67 @@ export const store = configureStore({
 userSlice.js
 
 ```js
-import { createSlice } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
+import { createSlice } from '@reduxjs/toolkit'
+import { toast } from 'react-toastify'
 
 const themes = {
   winter: 'winter',
   dracula: 'dracula',
-};
+}
 
 const getThemeFromLocalStorage = () => {
-  const theme = localStorage.getItem('theme') || themes.winter;
-  document.documentElement.setAttribute('data-theme', theme);
-  return theme;
-};
+  const theme = localStorage.getItem('theme') || themes.winter
+  document.documentElement.setAttribute('data-theme', theme)
+  return theme
+}
 
 const initialState = {
   user: { username: 'coding addict' },
   theme: getThemeFromLocalStorage(),
-};
+}
 
 const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
     loginUser: (state, action) => {
-      console.log('login');
+      console.log('login')
     },
     logoutUser: (state) => {
-      console.log('logout');
+      console.log('logout')
     },
     toggleTheme: (state) => {
-      const { dracula, winter } = themes;
-      state.theme = state.theme === dracula ? winter : dracula;
-      document.documentElement.setAttribute('data-theme', state.theme);
-      localStorage.setItem('theme', state.theme);
+      const { dracula, winter } = themes
+      state.theme = state.theme === dracula ? winter : dracula
+      document.documentElement.setAttribute('data-theme', state.theme)
+      localStorage.setItem('theme', state.theme)
     },
   },
-});
+})
 
-export const { loginUser, logoutUser, toggleTheme } = userSlice.actions;
+export const { loginUser, logoutUser, toggleTheme } = userSlice.actions
 
-export default userSlice.reducer;
+export default userSlice.reducer
 ```
 
 Navbar.js
 
 ```js
-import { BsCart3, BsMoonFill, BsSunFill } from 'react-icons/bs';
-import { FaBarsStaggered } from 'react-icons/fa6';
-import { NavLink } from 'react-router-dom';
-import NavLinks from './NavLinks';
+import { BsCart3, BsMoonFill, BsSunFill } from 'react-icons/bs'
+import { FaBarsStaggered } from 'react-icons/fa6'
+import { NavLink } from 'react-router-dom'
+import NavLinks from './NavLinks'
 
-import { useDispatch, useSelector } from 'react-redux';
-import { toggleTheme } from '../features/user/userSlice';
+import { useDispatch, useSelector } from 'react-redux'
+import { toggleTheme } from '../features/user/userSlice'
 
 const Navbar = () => {
-  const numItemsInCart = useSelector((state) => state.cartState.numItemsInCart);
+  const numItemsInCart = useSelector((state) => state.cartState.numItemsInCart)
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const handleTheme = () => {
-    dispatch(toggleTheme());
-  };
+    dispatch(toggleTheme())
+  }
   return (
     <nav className='bg-base-200'>
       <div className='navbar align-element '>
@@ -3614,10 +3614,11 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
-  );
-};
-export default Navbar;
+  )
+}
+export default Navbar
 ```
+
 ## Additional Logic
 
 Navbar.jsx
@@ -3649,7 +3650,6 @@ const Navbar = () => {
 export default Navbar;
 ```
 
-
 ## Challenge (42) - Setup Logout and Access User
 
 - setup logout reducer
@@ -3671,20 +3671,20 @@ logoutUser: (state) => {
 Header.js
 
 ```js
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import { logoutUser } from '../features/user/userSlice';
-import { clearCart } from '../features/cart/cartSlice';
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { logoutUser } from '../features/user/userSlice'
+import { clearCart } from '../features/cart/cartSlice'
 const Header = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const user = useSelector((state) => state.userState.user);
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const user = useSelector((state) => state.userState.user)
 
   const handleLogout = () => {
-    navigate('/');
-    dispatch(clearCart());
-    dispatch(logoutUser());
-  };
+    navigate('/')
+    dispatch(clearCart())
+    dispatch(logoutUser())
+  }
   return (
     <header className=' bg-neutral py-2 text-neutral-content '>
       <div className='align-element flex justify-center sm:justify-end '>
@@ -3710,44 +3710,44 @@ const Header = () => {
         )}
       </div>
     </header>
-  );
-};
-export default Header;
+  )
+}
+export default Header
 ```
 
 NavLinks.jsx
 
 ```js
-import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux'
+import { NavLink } from 'react-router-dom'
 
 const NavLinks = () => {
-  const user = useSelector((state) => state.userState.user);
+  const user = useSelector((state) => state.userState.user)
 
   return (
     <>
       {links.map((link) => {
-        const { id, url, text } = link;
-        if ((url === 'checkout' || url === 'orders') && !user) return null;
+        const { id, url, text } = link
+        if ((url === 'checkout' || url === 'orders') && !user) return null
         return (
           <li key={id}>
             <NavLink className='capitalize' to={url}>
               {text}
             </NavLink>
           </li>
-        );
+        )
       })}
     </>
-  );
-};
-export default NavLinks;
+  )
+}
+export default NavLinks
 ```
 
 ```js
 const Cart = () => {
   // temp
-  const { user } = useSelector((state) => state.userState);
-};
+  const { user } = useSelector((state) => state.userState)
+}
 ```
 
 ## Challenge (43) - Register User
@@ -3790,28 +3790,28 @@ const Cart = () => {
 Register.jsx
 
 ```js
-import { FormInput, SubmitBtn } from '../components';
-import { Form, redirect, Link } from 'react-router-dom';
+import { FormInput, SubmitBtn } from '../components'
+import { Form, redirect, Link } from 'react-router-dom'
 
-import { customFetch } from '../utils';
-import { toast } from 'react-toastify';
+import { customFetch } from '../utils'
+import { toast } from 'react-toastify'
 
 export const action = async ({ request }) => {
-  const formData = await request.formData();
-  const data = Object.fromEntries(formData);
+  const formData = await request.formData()
+  const data = Object.fromEntries(formData)
   try {
-    const response = await customFetch.post('/auth/local/register', data);
-    toast.success('account created successfully');
-    return redirect('/login');
+    const response = await customFetch.post('/auth/local/register', data)
+    toast.success('account created successfully')
+    return redirect('/login')
   } catch (error) {
     const errorMessage =
       error?.response?.data?.error?.message ||
-      'please double check your credentials';
+      'please double check your credentials'
 
-    toast.error(errorMessage);
-    return null;
+    toast.error(errorMessage)
+    return null
   }
-};
+}
 
 const Register = () => {
   return (
@@ -3839,9 +3839,9 @@ const Register = () => {
         </p>
       </Form>
     </section>
-  );
-};
-export default Register;
+  )
+}
+export default Register
 ```
 
 ## Challenge (44) - Login Setup
@@ -3873,9 +3873,9 @@ Login.jsx
 export const action =
   (store) =>
   async ({ request }) => {
-    console.log(store);
-    return store;
-  };
+    console.log(store)
+    return store
+  }
 ```
 
 ### Challenge (45) - Login User
@@ -3924,34 +3924,34 @@ loginUser: (state, action) => {
 Login.jsx
 
 ```js
-import { FormInput, SubmitBtn } from '../components';
-import { Form, Link, redirect, useNavigate } from 'react-router-dom';
-import { customFetch } from '../utils';
-import { toast } from 'react-toastify';
-import { loginUser } from '../features/user/userSlice';
-import { useDispatch } from 'react-redux';
+import { FormInput, SubmitBtn } from '../components'
+import { Form, Link, redirect, useNavigate } from 'react-router-dom'
+import { customFetch } from '../utils'
+import { toast } from 'react-toastify'
+import { loginUser } from '../features/user/userSlice'
+import { useDispatch } from 'react-redux'
 
 export const action =
   (store) =>
   async ({ request }) => {
-    const formData = await request.formData();
-    const data = Object.fromEntries(formData);
+    const formData = await request.formData()
+    const data = Object.fromEntries(formData)
     try {
-      const response = await customFetch.post('/auth/local', data);
+      const response = await customFetch.post('/auth/local', data)
 
-      store.dispatch(loginUser(response.data));
-      toast.success('logged in successfully');
-      return redirect('/');
+      store.dispatch(loginUser(response.data))
+      toast.success('logged in successfully')
+      return redirect('/')
     } catch (error) {
-      console.log(error);
+      console.log(error)
       const errorMessage =
         error?.response?.data?.error?.message ||
-        'please double check your credentials';
+        'please double check your credentials'
 
-      toast.error(errorMessage);
-      return null;
+      toast.error(errorMessage)
+      return null
     }
-  };
+  }
 ```
 
 userSlice.js
@@ -3998,31 +3998,31 @@ Login.jsx
 
 ```js
 const Login = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const loginAsGuestUser = async () => {
     try {
       const response = await customFetch.post('/auth/local', {
         identifier: 'test@test.com',
         password: 'secret',
-      });
-      dispatch(loginUser(response.data));
-      toast.success('welcome guest user');
-      navigate('/');
+      })
+      dispatch(loginUser(response.data))
+      toast.success('welcome guest user')
+      navigate('/')
     } catch (error) {
-      console.log(error);
-      toast.error('guest user login error.please try later.');
+      console.log(error)
+      toast.error('guest user login error.please try later.')
     }
-  };
-};
+  }
+}
 
-<button
+;<button
   type='button'
   className='btn btn-secondary btn-block'
   onClick={loginAsGuestUser}
 >
   guest user
-</button>;
+</button>
 ```
 
 ## Challenge (47) - Checkout Page Setup
@@ -4053,13 +4053,13 @@ const Login = () => {
 Checkout.jsx
 
 ```js
-import { useSelector } from 'react-redux';
-import { CheckoutForm, SectionTitle, CartTotals } from '../components';
+import { useSelector } from 'react-redux'
+import { CheckoutForm, SectionTitle, CartTotals } from '../components'
 
 const Checkout = () => {
-  const cartItems = useSelector((state) => state.cartState.cartTotal);
+  const cartItems = useSelector((state) => state.cartState.cartTotal)
   if (cartTotal.length === 0) {
-    return <SectionTitle text='Your cart is empty' />;
+    return <SectionTitle text='Your cart is empty' />
   }
   return (
     <>
@@ -4069,9 +4069,9 @@ const Checkout = () => {
         <CartTotals />
       </div>
     </>
-  );
-};
-export default Checkout;
+  )
+}
+export default Checkout
 ```
 
 ## Challenge (48) - Restrict Access
@@ -4131,18 +4131,18 @@ const router = createBrowserRouter([
 Checkout.jsx
 
 ```js
-import { redirect } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { redirect } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 export const loader = (store) => async () => {
-  const user = store.getState().userState.user;
+  const user = store.getState().userState.user
 
   if (!user) {
-    toast.warn('You must be logged in to checkout');
-    return redirect('/login');
+    toast.warn('You must be logged in to checkout')
+    return redirect('/login')
   }
-  return null;
-};
+  return null
+}
 ```
 
 ## Challenge (49) - CheckoutForm
@@ -4199,8 +4199,8 @@ export const loader = (store) => async () => {
 App.jsx
 
 ```js
-import { action as checkoutAction } from './components/CheckoutForm';
-import { store } from './store';
+import { action as checkoutAction } from './components/CheckoutForm'
+import { store } from './store'
 
 const router = createBrowserRouter([
   {
@@ -4216,27 +4216,26 @@ const router = createBrowserRouter([
       },
     ],
   },
-]);
+])
 ```
 
 CheckoutForm.jsx
 
 ```js
-import { Form, redirect } from 'react-router-dom';
-import FormInput from './FormInput';
-import SubmitBtn from './SubmitBtn';
-import { customFetch, formatPrice } from '../utils';
-import { toast } from 'react-toastify';
-import { clearCart } from '../features/cart/cartSlice';
+import { Form, redirect } from 'react-router-dom'
+import FormInput from './FormInput'
+import SubmitBtn from './SubmitBtn'
+import { customFetch, formatPrice } from '../utils'
+import { toast } from 'react-toastify'
+import { clearCart } from '../features/cart/cartSlice'
 
 export const action =
   (store) =>
   async ({ request }) => {
-    const formData = await request.formData();
-    const { name, address } = Object.fromEntries(formData);
-    const user = store.getState().userState.user;
-    const { cartItems, orderTotal, numItemsInCart } =
-      store.getState().cartState;
+    const formData = await request.formData()
+    const { name, address } = Object.fromEntries(formData)
+    const user = store.getState().userState.user
+    const { cartItems, orderTotal, numItemsInCart } = store.getState().cartState
 
     const info = {
       name,
@@ -4245,7 +4244,7 @@ export const action =
       orderTotal: formatPrice(orderTotal),
       cartItems,
       numItemsInCart,
-    };
+    }
     try {
       const response = await customFetch.post(
         '/orders',
@@ -4255,20 +4254,20 @@ export const action =
             Authorization: `Bearer ${user.token}`,
           },
         }
-      );
-      store.dispatch(clearCart());
-      toast.success('order placed successfully');
-      return redirect('/orders');
+      )
+      store.dispatch(clearCart())
+      toast.success('order placed successfully')
+      return redirect('/orders')
     } catch (error) {
-      console.log(error);
+      console.log(error)
       const errorMessage =
         error?.response?.data?.error?.message ||
-        'there was an error placing your order';
+        'there was an error placing your order'
 
-      toast.error(errorMessage);
-      return null;
+      toast.error(errorMessage)
+      return null
     }
-  };
+  }
 const CheckoutForm = () => {
   return (
     <Form method='POST' className='flex flex-col gap-y-4'>
@@ -4279,9 +4278,9 @@ const CheckoutForm = () => {
         <SubmitBtn text='Place Your Order' />
       </div>
     </Form>
-  );
-};
-export default CheckoutForm;
+  )
+}
+export default CheckoutForm
 ```
 
 ## Challenge (50) - Auth Error
@@ -4373,48 +4372,48 @@ import { loader as ordersLoader } from './pages/Orders';
 Orders.jsx
 
 ```js
-import { redirect, useLoaderData } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import { customFetch } from '../utils';
-import { OrdersList, PaginationContainer, SectionTitle } from '../components';
+import { redirect, useLoaderData } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import { customFetch } from '../utils'
+import { OrdersList, PaginationContainer, SectionTitle } from '../components'
 
 export const loader =
   (store) =>
   async ({ request }) => {
-    const user = store.getState().userState.user;
+    const user = store.getState().userState.user
 
     if (!user) {
-      toast.warn('You must be logged in to view orders');
-      return redirect('/login');
+      toast.warn('You must be logged in to view orders')
+      return redirect('/login')
     }
     const params = Object.fromEntries([
       ...new URL(request.url).searchParams.entries(),
-    ]);
+    ])
     try {
       const response = await customFetch.get('/orders', {
         params,
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
-      });
+      })
 
-      return { orders: response.data.data, meta: response.data.meta };
+      return { orders: response.data.data, meta: response.data.meta }
     } catch (error) {
-      console.log(error);
+      console.log(error)
       const errorMessage =
         error?.response?.data?.error?.message ||
-        'there was an error accessing your orders';
+        'there was an error accessing your orders'
 
-      toast.error(errorMessage);
-      if (error?.response?.status === 401 || 403) return redirect('/login');
+      toast.error(errorMessage)
+      if (error?.response?.status === 401 || 403) return redirect('/login')
 
-      return null;
+      return null
     }
-  };
+  }
 const Orders = () => {
-  return <h1 className='text-3xl'>orders</h1>;
-};
-export default Orders;
+  return <h1 className='text-3xl'>orders</h1>
+}
+export default Orders
 ```
 
 ## Challenge (53) - Render Orders
@@ -4478,9 +4477,9 @@ Orders.jsx
 
 ```js
 const Orders = () => {
-  const { meta } = useLoaderData();
+  const { meta } = useLoaderData()
   if (meta.pagination.total < 1) {
-    return <SectionTitle text='Please make an order' />;
+    return <SectionTitle text='Please make an order' />
   }
   return (
     <>
@@ -4488,21 +4487,21 @@ const Orders = () => {
       <OrdersList />
       <PaginationContainer />
     </>
-  );
-};
-export default Orders;
+  )
+}
+export default Orders
 ```
 
 OrdersList.jsx
 
 ```js
-import { useLoaderData } from 'react-router-dom';
-import day from 'dayjs';
-import advancedFormat from 'dayjs/plugin/advancedFormat';
-day.extend(advancedFormat);
+import { useLoaderData } from 'react-router-dom'
+import day from 'dayjs'
+import advancedFormat from 'dayjs/plugin/advancedFormat'
+day.extend(advancedFormat)
 
 const OrdersList = () => {
-  const { orders, meta } = useLoaderData();
+  const { orders, meta } = useLoaderData()
   return (
     <div className='mt-8'>
       <h4 className='mb-4 capitalize'>
@@ -4522,11 +4521,11 @@ const OrdersList = () => {
           </thead>
           <tbody>
             {orders.map((order) => {
-              const id = order.id;
+              const id = order.id
               const { name, address, numItemsInCart, orderTotal, createdAt } =
-                order.attributes;
+                order.attributes
 
-              const date = day(createdAt).format('hh:mm a - MMM Do, YYYY ');
+              const date = day(createdAt).format('hh:mm a - MMM Do, YYYY ')
               return (
                 <tr key={id}>
                   <td>{name}</td>
@@ -4535,15 +4534,15 @@ const OrdersList = () => {
                   <td>{orderTotal}</td>
                   <td className='hidden sm:block'>{date}</td>
                 </tr>
-              );
+              )
             })}
           </tbody>
         </table>
       </div>
     </div>
-  );
-};
-export default OrdersList;
+  )
+}
+export default OrdersList
 ```
 
 ## Challenge (54) - Complex Pagination
@@ -4581,19 +4580,19 @@ export default OrdersList;
 ComplexPaginationContainer.jsx
 
 ```js
-import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
+import { useLoaderData, useLocation, useNavigate } from 'react-router-dom'
 
 const ComplexPaginationContainer = () => {
-  const { meta } = useLoaderData();
-  const { pageCount, page } = meta.pagination;
+  const { meta } = useLoaderData()
+  const { pageCount, page } = meta.pagination
 
-  const { search, pathname } = useLocation();
-  const navigate = useNavigate();
+  const { search, pathname } = useLocation()
+  const navigate = useNavigate()
   const handlePageChange = (pageNumber) => {
-    const searchParams = new URLSearchParams(search);
-    searchParams.set('page', pageNumber);
-    navigate(`${pathname}?${searchParams.toString()}`);
-  };
+    const searchParams = new URLSearchParams(search)
+    searchParams.set('page', pageNumber)
+    navigate(`${pathname}?${searchParams.toString()}`)
+  }
 
   const addPageButton = ({ pageNumber, activeClass }) => {
     return (
@@ -4606,13 +4605,13 @@ const ComplexPaginationContainer = () => {
       >
         {pageNumber}
       </button>
-    );
-  };
+    )
+  }
 
   const renderPageButtons = () => {
-    const pageButtons = [];
+    const pageButtons = []
     // first button
-    pageButtons.push(addPageButton({ pageNumber: 1, activeClass: page === 1 }));
+    pageButtons.push(addPageButton({ pageNumber: 1, activeClass: page === 1 }))
 
     // dots
     if (page > 2) {
@@ -4620,12 +4619,12 @@ const ComplexPaginationContainer = () => {
         <button className='join-item btn btn-xs sm:btn-md' key='dots-1'>
           ...
         </button>
-      );
+      )
     }
 
     // active/current page
     if (page !== 1 && page !== pageCount) {
-      pageButtons.push(addPageButton({ pageNumber: page, activeClass: true }));
+      pageButtons.push(addPageButton({ pageNumber: page, activeClass: true }))
     }
     // dots
     if (page < pageCount - 1) {
@@ -4633,17 +4632,17 @@ const ComplexPaginationContainer = () => {
         <button className='join-item btn btn-xs sm:btn-md' key='dots-2'>
           ...
         </button>
-      );
+      )
     }
 
     // last button
     pageButtons.push(
       addPageButton({ pageNumber: pageCount, activeClass: page === pageCount })
-    );
-    return pageButtons;
-  };
+    )
+    return pageButtons
+  }
 
-  if (pageCount < 2) return null;
+  if (pageCount < 2) return null
 
   return (
     <div className='mt-16 flex justify-end'>
@@ -4651,9 +4650,9 @@ const ComplexPaginationContainer = () => {
         <button
           className='btn btn-xs sm:btn-md join-item'
           onClick={() => {
-            let prevPage = page - 1;
-            if (prevPage < 1) prevPage = pageCount;
-            handlePageChange(prevPage);
+            let prevPage = page - 1
+            if (prevPage < 1) prevPage = pageCount
+            handlePageChange(prevPage)
           }}
         >
           Prev
@@ -4662,18 +4661,18 @@ const ComplexPaginationContainer = () => {
         <button
           className='btn btn-xs sm:btn-md join-item'
           onClick={() => {
-            let nextPage = page + 1;
-            if (nextPage > pageCount) nextPage = 1;
-            handlePageChange(nextPage);
+            let nextPage = page + 1
+            if (nextPage > pageCount) nextPage = 1
+            handlePageChange(nextPage)
           }}
         >
           Next
         </button>
       </div>
     </div>
-  );
-};
-export default ComplexPaginationContainer;
+  )
+}
+export default ComplexPaginationContainer
 ```
 
 ## Challenge (55) - Setup React Query
@@ -4690,8 +4689,8 @@ export default ComplexPaginationContainer;
 App.jsx
 
 ```js
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -4699,7 +4698,7 @@ const queryClient = new QueryClient({
       staleTime: 1000 * 60 * 5,
     },
   },
-});
+})
 
 const router = createBrowserRouter([
   {
@@ -4738,7 +4737,7 @@ const router = createBrowserRouter([
       },
     ],
   },
-]);
+])
 
 const App = () => {
   return (
@@ -4746,19 +4745,19 @@ const App = () => {
       <RouterProvider router={router} />
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
-  );
-};
-export default App;
+  )
+}
+export default App
 ```
 
 Landing.js
 
 ```js
 export const loader = (queryClient) => async () => {
-  const response = await customFetch(url);
-  const products = response.data.data;
-  return { products };
-};
+  const response = await customFetch(url)
+  const products = response.data.data
+  return { products }
+}
 ```
 
 ## Challenge (56) - Landing
@@ -4773,13 +4772,13 @@ Landing.jsx
 const featuredProductsQuery = {
   queryKey: ['featuredProducts'],
   queryFn: () => customFetch(url),
-};
+}
 
 export const loader = (queryClient) => async () => {
-  const response = await queryClient.ensureQueryData(featuredProductsQuery);
-  const products = response.data.data;
-  return { products };
-};
+  const response = await queryClient.ensureQueryData(featuredProductsQuery)
+  const products = response.data.data
+  return { products }
+}
 ```
 
 ## Challenge (57) - Single Product
@@ -4795,17 +4794,17 @@ const singleProductQuery = (id) => {
   return {
     queryKey: ['singleProduct', id],
     queryFn: () => customFetch.get(`/products/${id}`),
-  };
-};
+  }
+}
 
 export const loader =
   (queryClient) =>
   async ({ params }) => {
     const response = await queryClient.ensureQueryData(
       singleProductQuery(params.id)
-    );
-    return { product: response.data.data };
-  };
+    )
+    return { product: response.data.data }
+  }
 ```
 
 ## Challenge (58) - All Products
@@ -4818,9 +4817,7 @@ Products.jsx
 
 ```js
 const allProductsQuery = (queryParams) => {
-  const { search, category, company, sort, price, shipping, page } =
-    queryParams;
-
+  const { search, category, company, sort, price, shipping, page } = queryParams
   return {
     queryKey: [
       'products',
@@ -4836,24 +4833,22 @@ const allProductsQuery = (queryParams) => {
       customFetch(url, {
         params: queryParams,
       }),
-  };
-};
+  }
+}
 
 export const loader =
   (queryClient) =>
   async ({ request }) => {
     const params = Object.fromEntries([
       ...new URL(request.url).searchParams.entries(),
-    ]);
-    const response = await queryClient.ensureQueryData(
-      allProductsQuery(params)
-    );
+    ])
+    const response = await queryClient.ensureQueryData(allProductsQuery(params))
 
-    const products = response.data.data;
-    const meta = response.data.meta;
+    const products = response.data.data
+    const meta = response.data.meta
 
-    return { products, meta, params };
-  };
+    return { products, meta, params }
+  }
 ```
 
 ?? === This operator is known as the nullish coalescing operator in JavaScript. It is a logical operator that returns its right-hand side operand when its left-hand side operand is null or undefined, and otherwise returns its left-hand side operand.
@@ -4867,14 +4862,14 @@ setup react query and invoke in loader
 ## Solution (59) - Orders
 
 ```js
-import { redirect, useLoaderData } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import { customFetch } from '../utils';
+import { redirect, useLoaderData } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import { customFetch } from '../utils'
 import {
   OrdersList,
   ComplexPaginationContainer,
   SectionTitle,
-} from '../components';
+} from '../components'
 
 export const ordersQuery = (params, user) => {
   return {
@@ -4890,46 +4885,46 @@ export const ordersQuery = (params, user) => {
           Authorization: `Bearer ${user.token}`,
         },
       }),
-  };
-};
+  }
+}
 
 export const loader =
   (store, queryClient) =>
   async ({ request }) => {
-    const user = store.getState().userState.user;
+    const user = store.getState().userState.user
 
     if (!user) {
-      toast.warn('You must be logged in to view orders');
-      return redirect('/login');
+      toast.warn('You must be logged in to view orders')
+      return redirect('/login')
     }
     const params = Object.fromEntries([
       ...new URL(request.url).searchParams.entries(),
-    ]);
+    ])
     try {
       const response = await queryClient.ensureQueryData(
         ordersQuery(params, user)
-      );
+      )
 
       return {
         orders: response.data.data,
         meta: response.data.meta,
-      };
+      }
     } catch (error) {
-      console.log(error);
+      console.log(error)
       const errorMessage =
         error?.response?.data?.error?.message ||
-        'there was an error accessing your orders';
+        'there was an error accessing your orders'
 
-      toast.error(errorMessage);
-      if (error?.response?.status === 401 || 403) return redirect('/login');
-      return null;
+      toast.error(errorMessage)
+      if (error?.response?.status === 401 || 403) return redirect('/login')
+      return null
     }
-  };
+  }
 const Orders = () => {
-  const { meta } = useLoaderData();
+  const { meta } = useLoaderData()
 
   if (meta.pagination.total < 1) {
-    return <SectionTitle text='Please make an order' />;
+    return <SectionTitle text='Please make an order' />
   }
   return (
     <>
@@ -4937,9 +4932,9 @@ const Orders = () => {
       <OrdersList />
       <ComplexPaginationContainer />
     </>
-  );
-};
-export default Orders;
+  )
+}
+export default Orders
 ```
 
 ## Challenge (60) - Remove Queries
@@ -4958,8 +4953,7 @@ import { customFetch, formatPrice } from '../utils';
 import { toast } from 'react-toastify';
 import { clearCart } from '../features/cart/cartSlice';
 
-export const action =
-  (store, queryClient) =>
+export const action = (store, queryClient) =>
   async ({ request }) => {
     ...
     try {
@@ -4992,6 +4986,7 @@ const Header = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.userState.user);
   const queryClient = useQueryClient();
+  
   const handleLogout = async () => {
     navigate('/');
     dispatch(logoutUser());

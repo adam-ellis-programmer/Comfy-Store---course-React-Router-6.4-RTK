@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 import { clearCart } from '../features/cart/cartSlice'
 
 // prettier-ignore
-export const action = (store) => async ({ request }) => {
+export const action = (store, queryClient) => async ({ request }) => {
     const formData = await request.formData()
     const { name, address } = Object.fromEntries(formData)
     const user = store.getState().userState.user
@@ -32,6 +32,8 @@ export const action = (store) => async ({ request }) => {
       console.log(response)
       store.dispatch(clearCart())
       toast.success('order placed successfully')
+      // remove query
+      queryClient.removeQueries(['orders']);
       return redirect('/orders')
     } catch (error) {
       console.log(error);

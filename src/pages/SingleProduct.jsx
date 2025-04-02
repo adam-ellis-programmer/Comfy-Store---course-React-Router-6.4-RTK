@@ -4,11 +4,21 @@ import { formatPrice, customFetch, generateAmountOptions } from '../utils'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { addItem } from '../features/cart/cartSlice'
-// pull params from loader
-export const loader = async ({ params }) => {
-  const response = await customFetch(`/products/${params.id}`)
-  return { product: response.data.data }
+
+const singleProductQuery = (id) => {
+  return {
+    queryKey: ['singleProduct', id],
+    queryFn: () => customFetch.get(`/products/${id}`),
+  }
 }
+
+// pull params from loader
+// prettier-ignore
+export const loader = (queryClient) => async ({ params }) => {
+    // const response = await customFetch(`/products/${params.id}`) // old
+    const response = await queryClient.ensureQueryData(singleProductQuery(params.id))
+    return { product: response.data.data }
+  }
 
 const SingleProduct = () => {
   const { product } = useLoaderData()
